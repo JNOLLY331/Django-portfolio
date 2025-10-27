@@ -28,7 +28,7 @@ const About = () => {
           {/* Image Side with Professional Frame */}
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-            <div className="relative aspect-[4/5] md:aspect-square bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative aspect-[4/5] bg-slate-900 rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
               {profile?.profile_image ? (
                 <img 
                   src={profile.profile_image} 
@@ -54,7 +54,7 @@ const About = () => {
 
           {/* Text Content Side */}
           <div className="space-y-8">
-            <h1 className="text-5xl font-black text-gray-300">ABOUT</h1>
+            <h1 className="text-5xl font-black text-gray-300 text-center">ABOUT</h1>
             <div>
               <h2 className="text-sm font-black text-primary uppercase tracking-[0.3em] mb-4">Background</h2>
               <h3 className="text-xl md:text-2xl font-black text-white mb-6">
@@ -117,5 +117,6 @@ const About = () => {
     </section>
   );
 };
+
 
 export default About;
