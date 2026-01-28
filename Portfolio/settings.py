@@ -8,7 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-key')
 DEBUG = 'RENDER' not in os.environ # Automatically False on Render
 
-ALLOWED_HOSTS = ['japhethanold.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-a-temporary-dev-key-123')
 
 # 3. APPLICATION DEFINITION
 INSTALLED_APPS = [
