@@ -57,7 +57,15 @@ TEMPLATES = [
 ]
 
 # 6. STATIC & MEDIA FILES
+STATIC_ROOT = BASE_DIR / 'assetsfiles'
+
+
 STATIC_URL = '/assets/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# The URL prefix for images
+MEDIA_URL = '/media/'
 
 # Where Django looks for Vite assets during development/build
 STATICFILES_DIRS = [
@@ -69,6 +77,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Compression and Caching for performance
 STORAGES = {
+    # Default is for media files (images, profile pics, etc.)
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    # Staticfiles is for your CSS, JS, and React build
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
