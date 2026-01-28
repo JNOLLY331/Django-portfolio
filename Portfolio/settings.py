@@ -7,7 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 2. SECURITY (Update for production)
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-key')
 DEBUG = 'True' == os.environ.get('DEBUG', 'TRUE')
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [ "localhost",
+    "127.0.0.1",
+    "japhethanold.onrender.com",]
 
 
 # 3. APPLICATION DEFINITION
@@ -43,7 +45,9 @@ ROOT_URLCONF = 'Portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'frontend', 'dist')], 
+         "DIRS": [
+            BASE_DIR / "frontend" / "frontend" / "dist"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
