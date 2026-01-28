@@ -22,8 +22,7 @@ export const portfolioAPI = {
     getProjects: () => api.get('/projects/'),
     getFeaturedProjects: () => api.get('/projects/featured/'),
     
-    // Experience (Fixed spelling of 'Expirience' in the key, 
-    // but kept the URL as is to match your likely Django path)
+    // Experience   
     getExpirience: () => api.get('/expiriences/'),
     
     // contact
