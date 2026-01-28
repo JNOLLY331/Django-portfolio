@@ -31,6 +31,3 @@
   }
 }
 
-"scripts": {
-  "build": "vite build"
-}
