@@ -56,8 +56,10 @@ TEMPLATES = [
     },
 ]
 
+WHITENOISE_INDEX_FILE = True
+
 # 6. STATIC & MEDIA FILES
-STATIC_ROOT = BASE_DIR / 'assetsfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 STATIC_URL = '/assets/'
@@ -69,7 +71,7 @@ MEDIA_URL = '/media/'
 
 # Where Django looks for Vite assets during development/build
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'frontend', 'dist', 'assets'),
+    os.path.join(BASE_DIR, 'frontend', 'frontend', 'dist'),
 ]
 
 # Where WhiteNoise serves files from in production
@@ -92,7 +94,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://japhethanold.onrender.com",
 ]
-
+ 
 # 8. DATABASE (Render uses PostgreSQL; locally uses SQLite)
 import dj_database_url
 DATABASES = {
