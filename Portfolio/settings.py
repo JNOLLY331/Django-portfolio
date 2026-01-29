@@ -102,6 +102,8 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # 7. CORS SETTINGS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
