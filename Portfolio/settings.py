@@ -78,7 +78,7 @@ WHITENOISE_INDEX_FILE = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-STATIC_URL = '/assets/'
+STATIC_URL = '/static/'
 
 
 

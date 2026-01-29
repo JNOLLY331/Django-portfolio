@@ -9,7 +9,7 @@ export default defineConfig({
   ],
 
   // This must match your STATIC_URL in Django settings.py
-  base: '/assets/', 
+  base: '/', 
   build: {
     outDir: 'dist',
     emptyOutDir: true,
