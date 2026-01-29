@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WHITENOISE_INDEX_FILE = False
+WHITENOISE_INDEX_FILE = True
 
 # 6. STATIC & MEDIA FILES
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -94,20 +94,14 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Compression and Caching for performance
-# Django 6.0 compatibility for Cloudinary
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-
-# Add this to help WhiteNoise serve files without needing the manifest
-WHITENOISE_MANIFEST_STRICT = False
 # 7. CORS SETTINGS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
