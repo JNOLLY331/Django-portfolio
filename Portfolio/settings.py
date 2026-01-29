@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WHITENOISE_INDEX_FILE = True
+WHITENOISE_INDEX_FILE = False
 
 # 6. STATIC & MEDIA FILES
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -102,9 +102,12 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+# Add this to help WhiteNoise serve files without needing the manifest
+WHITENOISE_MANIFEST_STRICT = False
 # 7. CORS SETTINGS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
