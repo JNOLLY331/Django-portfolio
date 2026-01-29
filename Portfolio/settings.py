@@ -14,6 +14,8 @@ ALLOWED_HOSTS = [ "localhost",
 
 # 3. APPLICATION DEFINITION
 INSTALLED_APPS = [
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,7 +26,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'Portfolio_App',
-]
+    ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dcetqe8a5',
+    'API_KEY': '312234131976867',
+    'API_SECRET': 'qWrJDsVPaofxR0wqQCOqYi0lmF4',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 
 # 4. MIDDLEWARE (Order is critical here!)
 MIDDLEWARE = [
@@ -68,10 +80,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/assets/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # The URL prefix for images
-MEDIA_URL = '/media/'
+
 
 # Where Django looks for Vite assets during development/build
 STATICFILES_DIRS = [
@@ -83,16 +95,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Compression and Caching for performance
 STORAGES = {
-    # Default is for media files (images, profile pics, etc.)
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
-    # Staticfiles is for your CSS, JS, and React build
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-
 # 7. CORS SETTINGS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",

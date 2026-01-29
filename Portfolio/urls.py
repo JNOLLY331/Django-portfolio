@@ -21,17 +21,16 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView 
 
 urlpatterns = [
+    # 1. Backend Routes
     path('admin/', admin.site.urls),
     path('api/', include('Portfolio_App.urls')),
-    
 ]
 
-# Keep your media/static settings at the bottom
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# 2. Static Files (Only needed for CSS/JS in development)
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# This handles the React routing for your frontend
 urlpatterns += [
     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
 ]
